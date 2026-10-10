@@ -64,10 +64,13 @@ def generated_block():
         raise ValueError(f"expected {EXPECTED_CHAPTERS} chapter files, found {len(files)}")
     rows = []
     total = 0
+    sections = 0
     counts = []
     for path in files:
         num = int(path.stem[2:])
         questions = chapter_data(path)
+        source_lines = path.read_text(encoding="utf-8").splitlines()
+        sections += sum(bool(re.match(r"^### \d+\.\d+\s", line)) for line in source_lines)
         counts.append((num, len(questions)))
         total += len(questions)
         rows.append(f"### 第 {num} 章（{len(questions)} 个问题）\n")
@@ -76,14 +79,14 @@ def generated_block():
         rows.append("")
     if total != EXPECTED_QUESTIONS:
         raise ValueError(f"expected {EXPECTED_QUESTIONS} real Q headings, found {total}; chapter counts: {counts}")
-    return "\n".join(rows).rstrip(), counts, total
+    return "\n".join(rows).rstrip(), counts, total, sections
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="verify README index is current without writing")
     args = parser.parse_args()
-    block, counts, total = generated_block()
+    block, counts, total, sections = generated_block()
     readme = README.read_text(encoding="utf-8")
     if readme.count(START) != 1 or readme.count(END) != 1:
         raise ValueError("README must contain exactly one pair of generated-index markers")
@@ -99,7 +102,7 @@ def main() -> int:
         README.write_text(current, encoding="utf-8")
         print(f"Generated README index: {len(counts)} chapters, {total} Q headings")
     print("Chapter counts: " + ", ".join(f"{n:02d}={count}" for n, count in counts))
-    print("Section headings excluded: 188 (numbered N.N headings, not Q entries)")
+    print(f"Section headings excluded: {sections} (numbered N.N headings, not Q entries)")
     return 0
 
 
