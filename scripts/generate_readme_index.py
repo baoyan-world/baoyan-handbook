@@ -15,7 +15,6 @@ README = ROOT / "README.md"
 CHAPTER_DIR = ROOT / "docs" / "chapters"
 START = "<!-- BEGIN GENERATED QUESTION INDEX -->"
 END = "<!-- END GENERATED QUESTION INDEX -->"
-EXPECTED_CHAPTERS = 21
 
 
 def github_slug(text: str) -> str:
@@ -59,8 +58,9 @@ def chapter_data(path: Path):
 
 def generated_block():
     files = sorted(CHAPTER_DIR.glob("ch[0-9][0-9].md"))
-    if len(files) != EXPECTED_CHAPTERS:
-        raise ValueError(f"expected {EXPECTED_CHAPTERS} chapter files, found {len(files)}")
+    numbers = [int(path.stem[2:]) for path in files]
+    if not files or numbers != list(range(1, len(files) + 1)):
+        raise ValueError(f"chapter files must be numbered contiguously from ch01; found {numbers}")
     rows = []
     total = 0
     sections = 0
