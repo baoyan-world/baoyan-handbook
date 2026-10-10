@@ -16,7 +16,6 @@ CHAPTER_DIR = ROOT / "docs" / "chapters"
 START = "<!-- BEGIN GENERATED QUESTION INDEX -->"
 END = "<!-- END GENERATED QUESTION INDEX -->"
 EXPECTED_CHAPTERS = 21
-EXPECTED_QUESTIONS = 1380
 
 
 def github_slug(text: str) -> str:
@@ -77,8 +76,7 @@ def generated_block():
         for title, anchor in questions:
             rows.append(f"- [{escaped_label(title)}](docs/chapters/{path.name}#{anchor})")
         rows.append("")
-    if total != EXPECTED_QUESTIONS:
-        raise ValueError(f"expected {EXPECTED_QUESTIONS} real Q headings, found {total}; chapter counts: {counts}")
+    rows.insert(0, f"本索引由 {len(files)} 章源 Markdown 自动生成，共 {total:,} 个问答。问题标题可在页面内搜索，点击可跳转到章节正文。\n")
     return "\n".join(rows).rstrip(), counts, total, sections
 
 

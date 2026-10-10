@@ -47,9 +47,11 @@
 
 ## 按章检索全部问题
 
-共 21 章、1,380 个问答。以下问题标题对应章节正文中的原始问答标题；点击可直接跳到该问答。使用浏览器或 GitHub 页面搜索（Ctrl+F / ⌘F）可查找标题关键词。自动生成与校验方法见 [`scripts/generate_readme_index.py`](scripts/generate_readme_index.py)。
+以下问题标题对应章节正文中的原始问答标题。使用浏览器或 GitHub 页面搜索（Ctrl+F / ⌘F）可查找标题关键词。自动生成与校验方法见 [`scripts/generate_readme_index.py`](scripts/generate_readme_index.py)。
 
 <!-- BEGIN GENERATED QUESTION INDEX -->
+本索引由 21 章源 Markdown 自动生成，共 1,380 个问答。问题标题可在页面内搜索，点击可跳转到章节正文。
+
 ### 第 1 章（60 个问题）
 
 - [保研和考研到底差在哪？听说保研能省一整年是真的吗](docs/chapters/ch01.md#保研和考研到底差在哪听说保研能省一整年是真的吗)
