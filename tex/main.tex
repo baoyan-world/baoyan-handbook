@@ -1,0 +1,56 @@
+% =====================================================================
+%  《中国保研（推免）全流程知识手册》
+%  编译：xelatex -> xelatex -> makeindex -> xelatex -> xelatex
+%  由 scripts/build.sh 驱动；正文各章由结构化数据生成后 \input 进来。
+% =====================================================================
+\documentclass[UTF8,10pt,openany,fontset=none,oneside]{ctexbook}
+
+\input{preamble}
+\input{buildinfo}   % 由渲染器生成：\handbookdate 等
+
+\title{{\zhheib 中国保研（推免）全流程知识手册}\\[0.4em]
+       {\zhhei\large 基于真实问题空间与可核验来源的结构化问答}}
+\author{轻保研整理}
+\date{\handbookdate}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\input{frontmatter/copyright}
+\cleardoublepage
+
+\input{frontmatter/howto}
+\cleardoublepage
+
+\renewcommand{\contentsname}{目\quad 录}
+\tableofcontents
+\cleardoublepage
+
+\input{frontmatter/overview}
+\cleardoublepage
+
+\mainmatter
+
+\input{chapters/all}
+
+\backmatter
+
+\input{backmatter/sources}
+\cleardoublepage
+
+\input{backmatter/appendix}
+\cleardoublepage
+
+\input{backmatter/keydocs}
+\cleardoublepage
+
+
+\printindex[stage]
+\cleardoublepage
+\printindex[theme]
+\cleardoublepage
+\printindex[inst]
+
+\end{document}
