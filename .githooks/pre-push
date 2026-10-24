@@ -1,2 +1,12 @@
 #!/bin/sh
-exec "$(git rev-parse --show-toplevel)/scripts/check-publish-identity.sh" --push
+set -eu
+"$(git rev-parse --show-toplevel)/scripts/check-publish-identity.sh" --push </dev/null
+
+while read -r local_ref local_oid remote_ref remote_oid; do
+  case "$remote_ref" in
+    refs/heads/master)
+      echo 'publish branch check failed: master is retained for history; publish daily updates to main' >&2
+      exit 1
+      ;;
+  esac
+done
