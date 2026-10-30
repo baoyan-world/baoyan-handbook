@@ -9,6 +9,8 @@
 
 推免政策和院校要求会逐年变化。涉及资格、时间、材料、考核、奖助或录取手续时，请以教育主管部门、所在学校和目标招生单位当年发布的正式文件为准。本手册不承诺资格、入营或录取结果。
 
+关注最新资讯，可关注：<img width="430" height="430" alt="qrcode_for_gh_cb9e56f22870_430" src="https://github.com/user-attachments/assets/58bddc2a-97d4-40d6-9d22-fcbae2a68716" />
+
 ## 内容规模
 
 
@@ -1722,5 +1724,3 @@ flowchart LR
 ## 使用与再利用
 
 本知识库提供学习和信息检索参考，不替代招生单位当年公告，也不构成升学或法律意见。来源清单用于回溯原始发布页面，不代表对每项来源的持续有效性背书。原始来源由各自权利人发布；仓库不授予对 PDF 或其所引第三方材料的额外复制、改编或商业使用权。
-
-关注最新资讯，可关注：<img width="430" height="430" alt="qrcode_for_gh_cb9e56f22870_430" src="https://github.com/user-attachments/assets/58bddc2a-97d4-40d6-9d22-fcbae2a68716" />
